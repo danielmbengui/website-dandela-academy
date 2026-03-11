@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useLang } from '../lib/LangContext'
 import LangSelector from './LangSelector'
 import styles from './Navbar.module.css'
@@ -30,16 +31,14 @@ export default function Navbar() {
       <div className={`container ${styles.inner}`}>
         {/* Logo */}
         <a href="#accueil" className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect width="28" height="28" rx="8" fill="#1565D8"/>
-              <path d="M7 20V8h5.5C16.09 8 18.5 10.2 18.5 14s-2.41 6-6 6H7zm2.5-2h3c2.21 0 3.5-1.57 3.5-4s-1.29-4-3.5-4h-3v8z" fill="white"/>
-              <circle cx="21" cy="9" r="3" fill="#FF9F1C"/>
-            </svg>
-          </div>
-          <span className={styles.logoText}>
-            Dandela <strong>Academy</strong>
-          </span>
+          <Image
+            src="/images/logo.png"
+            alt="Dandela Academy"
+            width={172}
+            height={36}
+            className={`${styles.logoFull} ${!scrolled ? styles.logoFullWhite : ''}`}
+            priority
+          />
         </a>
 
         {/* Desktop links */}

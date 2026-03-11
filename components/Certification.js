@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useLang } from '../lib/LangContext'
 import styles from './Certification.module.css'
 
@@ -9,6 +10,17 @@ const HL_ICONS = [
   <svg key="2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
   <svg key="3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
 ]
+
+const BLGLogo = ({ size = 80 }) => (
+  <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="29" cy="29" rx="17" ry="17" fill="#E8231A" transform="rotate(-45 29 29)" />
+    <ellipse cx="51" cy="29" rx="17" ry="17" fill="#F5C200" transform="rotate(45 51 29)" />
+    <ellipse cx="29" cy="51" rx="17" ry="17" fill="#1A72B8" transform="rotate(45 29 51)" />
+    <ellipse cx="51" cy="51" rx="17" ry="17" fill="#2BA84A" transform="rotate(-45 51 51)" />
+    <circle cx="40" cy="40" r="17" fill="white" />
+    <text x="40" y="44.5" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="900" fill="#1a1a1a" letterSpacing="0.5">BLG</text>
+  </svg>
+)
 
 export default function Certification() {
   const { t } = useLang()
@@ -22,7 +34,7 @@ export default function Certification() {
           <h2 className="section-title">
             {c.title[0]}<br /><span>{c.title[1]}</span>
           </h2>
-          <p className="section-subtitle">{c.subtitle}</p>
+          <p className={`section-subtitle ${styles.subtitle}`}>{c.subtitle}</p>
         </div>
 
         <div className={styles.highlights}>
@@ -38,16 +50,19 @@ export default function Certification() {
         </div>
 
         {/* Certificate visual */}
-        <div className={styles.certWrap}>
+        {
+          /*
+          <div className={styles.certWrap}>
           <div className={styles.certCard}>
             <div className={styles.certHeader}>
               <div className={styles.certLogo}>
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <rect width="28" height="28" rx="8" fill="#1565D8"/>
-                  <path d="M7 20V8h5.5C16.09 8 18.5 10.2 18.5 14s-2.41 6-6 6H7zm2.5-2h3c2.21 0 3.5-1.57 3.5-4s-1.29-4-3.5-4h-3v8z" fill="white"/>
-                  <circle cx="21" cy="9" r="3" fill="#FF9F1C"/>
-                </svg>
-                <span>Dandela Academy</span>
+                <Image
+                  src="/images/logo.png"
+                  alt="Dandela Academy"
+                  width={160}
+                  height={33}
+                  className={styles.certLogoWhite}
+                />
               </div>
               <div className={styles.certBadge}>INEFOP</div>
             </div>
@@ -69,21 +84,53 @@ export default function Certification() {
             </div>
           </div>
         </div>
+          */
+        }
 
         {/* Partners */}
         <div className={styles.partners}>
           <h3 className={styles.partnersTitle}>{c.partnersTitle}</h3>
           <p className={styles.partnersSub}>{c.partnersSub}</p>
           <div className={styles.partnersGrid}>
-            {c.partners.map((p, i) => (
-              <div key={i} className={styles.partner}>
-                <div className={styles.partnerLogo} style={{ color: p.color, borderColor: p.color + '20', background: p.color + '10' }}>
-                  <span>{p.abbr}</span>
+            {c.partners.map((p, i) => {
+              const partnerCard = (
+                <div className={`${styles.partner} ${p.link ? styles.partnerClickable : ''}`}>
+                  <div className={styles.partnerLogo} style={{ color: p.color, borderColor: p.color + '20', background: p.color + '10' }}>
+                    {p.customLogo === 'blg' ? (
+                      <BLGLogo size={56} />
+                    ) : p.logo ? (
+                      <Image
+                        src={p.logo}
+                        alt={p.name}
+                        width={56}
+                        height={56}
+                        className={styles.partnerLogoImage}
+                      />
+                    ) : (
+                      <span>{p.abbr}</span>
+                    )}
+                  </div>
+                  <div className={styles.partnerName}>{p.name}</div>
+                  <div className={styles.partnerDesc}>{p.desc}</div>
                 </div>
-                <div className={styles.partnerName}>{p.name}</div>
-                <div className={styles.partnerDesc}>{p.desc}</div>
-              </div>
-            ))}
+              )
+
+              if (p.link) {
+                return (
+                  <a
+                    key={i}
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.partnerLink}
+                  >
+                    {partnerCard}
+                  </a>
+                )
+              }
+
+              return <div key={i}>{partnerCard}</div>
+            })}
           </div>
         </div>
       </div>

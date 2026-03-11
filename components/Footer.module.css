@@ -4,6 +4,7 @@
 .brand {}
 .logo { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-family:'Sora',sans-serif; font-size:1rem; color:white; }
 .logo strong { font-weight:800; color:var(--blue-primary); }
+.logoFullWhite { display:block; height:auto; filter:brightness(0) invert(1); }
 .tagline { font-family:'Sora',sans-serif; font-size:.83rem; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:10px; font-style:italic; }
 .desc { font-size:.8rem; color:rgba(255,255,255,.4); line-height:1.7; margin-bottom:18px; }
 .wa { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; font-family:'Sora',sans-serif; font-size:.78rem; font-weight:600; padding:7px 16px; border-radius:100px; transition:all .25s; }
@@ -17,6 +18,8 @@
 
 .contactList { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:18px; }
 .contactItem { display:flex; align-items:center; gap:9px; font-size:.8rem; color:rgba(255,255,255,.6); }
+.contactLink { color:rgba(255,255,255,.6); text-decoration:none; }
+.contactLink:hover { color:white; text-decoration:underline; }
 
 .inefopBadge { display:inline-flex; align-items:center; gap:7px; background:rgba(21,101,216,.15); border:1px solid rgba(21,101,216,.3); color:#90CAF9; font-family:'Sora',sans-serif; font-size:.7rem; font-weight:700; padding:5px 12px; border-radius:100px; }
 

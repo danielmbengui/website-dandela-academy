@@ -99,7 +99,7 @@ export default function Hero() {
               <g style={{animation:'floatC 3.5s ease-in-out infinite 1.2s'}}>
                 <rect x="350" y="180" width="100" height="48" rx="12" fill="#FF9F1C" opacity=".95"/>
                 <text x="400" y="200" textAnchor="middle" fontSize="11" fontWeight="800" fill="white" fontFamily="Sora,sans-serif">INEFOP</text>
-                <text x="400" y="217" textAnchor="middle" fontSize="9" fill="white" opacity=".85" fontFamily="sans-serif">Certifié ✓</text>
+                <text x="400" y="217" textAnchor="middle" fontSize="9" fill="white" opacity=".85" fontFamily="sans-serif">{`${h.stat3l} ✓`}</text>
               </g>
               {/* floor */}
               <rect x="0" y="260" width="460" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
@@ -126,7 +126,7 @@ export default function Hero() {
 
       <div className={styles.scrollHint}>
         <div className={styles.mouse}><div className={styles.wheel}/></div>
-        <span>{h.scrollLabel ?? 'Découvrir'}</span>
+        <span>{h.scrollLabel}</span>
       </div>
     </section>
   )

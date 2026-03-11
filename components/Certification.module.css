@@ -1,6 +1,6 @@
 .section { padding:100px 0; background:var(--blue-pale); }
 .header { text-align:center; margin-bottom:56px; }
-.header .section-subtitle { margin:0 auto; }
+.subtitle { margin:0 auto; text-align:center; }
 
 .highlights { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:56px; }
 .highlight { display:flex; gap:18px; align-items:flex-start; background:white; border-radius:var(--radius-md); padding:22px; border:1px solid rgba(21,101,216,.1); transition:all .3s ease; }
@@ -15,6 +15,7 @@
 .certCard { background:white; border-radius:var(--radius-lg); border:2px solid rgba(21,101,216,.15); box-shadow:var(--shadow-lg); max-width:580px; width:100%; overflow:hidden; }
 .certHeader { background:linear-gradient(135deg,#0D47A1,#1565D8); padding:18px 28px; display:flex; align-items:center; justify-content:space-between; }
 .certLogo { display:flex; align-items:center; gap:12px; color:white; font-family:'Sora',sans-serif; font-weight:700; font-size:.95rem; }
+.certLogoWhite { display:block; height:auto; filter:brightness(0) invert(1); }
 .certBadge { background:#FF9F1C; color:white; font-family:'Sora',sans-serif; font-size:.72rem; font-weight:800; padding:4px 12px; border-radius:100px; }
 .certBody { padding:28px 32px; }
 .certTitle { font-family:'Sora',sans-serif; font-size:1.35rem; font-weight:800; color:var(--blue-primary); text-align:center; margin-bottom:14px; }
@@ -29,9 +30,12 @@
 .partnersTitle { font-family:'Sora',sans-serif; font-size:1.3rem; font-weight:800; color:var(--dark); margin-bottom:8px; }
 .partnersSub { font-size:.88rem; color:var(--gray-text); max-width:540px; margin:0 auto 32px; line-height:1.7; }
 .partnersGrid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.partnerLink { text-decoration:none; color:inherit; display:block; }
 .partner { background:white; border-radius:var(--radius-md); padding:22px 14px; text-align:center; border:1px solid rgba(21,101,216,.1); transition:all .3s; }
+.partnerClickable { cursor:pointer; }
 .partner:hover { box-shadow:var(--shadow-md); transform:translateY(-4px); }
 .partnerLogo { width:68px; height:68px; border-radius:50%; border:2px solid; display:flex; align-items:center; justify-content:center; margin:0 auto 10px; font-family:'Sora',sans-serif; font-weight:800; font-size:.88rem; transition:transform .3s; }
+.partnerLogoImage { width:56px; height:56px; object-fit:contain; }
 .partner:hover .partnerLogo { transform:scale(1.1); }
 .partnerName { font-family:'Sora',sans-serif; font-size:.83rem; font-weight:700; color:var(--dark); margin-bottom:3px; }
 .partnerDesc { font-size:.72rem; color:var(--gray-muted); line-height:1.5; }

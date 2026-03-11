@@ -10,11 +10,11 @@ const SPACE_COLORS = [
   { color: '#0D47A1', bg: '#E3F2FD', tagBg: 'rgba(13,71,161,0.12)', checkColor: '#0D47A1' },
 ]
 
-// Picsum seeds chosen to evoke: tech office, cafe, classroom
+// First two are placeholders; classroom uses local asset
 const PHOTOS = [
-  { src: 'https://picsum.photos/seed/cybertech01/800/480', alt: 'Cybercafé Dandela Academy' },
-  { src: 'https://picsum.photos/seed/cafecozy44/800/480', alt: 'Cafétéria Dandela Academy' },
-  { src: 'https://picsum.photos/seed/classroom77/800/480', alt: 'Salle de cours Dandela Academy' },
+  { src: 'https://picsum.photos/seed/cybertech01/800/480' },
+  { src: 'https://picsum.photos/seed/cafecozy44/800/480' },
+  { src: '/images/company/school.jpeg' },
 ]
 
 const ICONS = [
@@ -44,7 +44,7 @@ export default function Espaces() {
           <h2 className="section-title">
             {e.title[0]}<br /><span>{e.title[1]}</span>
           </h2>
-          <p className="section-subtitle">{e.subtitle}</p>
+          <p className={`section-subtitle ${styles.subtitle}`}>{e.subtitle}</p>
         </div>
 
         <div className={styles.grid}>
@@ -56,7 +56,7 @@ export default function Espaces() {
                 <div className={styles.photoWrap}>
                   <Image
                     src={PHOTOS[i].src}
-                    alt={PHOTOS[i].alt}
+                    alt={e.photoAlts?.[i] ?? item.title}
                     fill
                     sizes="(max-width:768px) 100vw, 33vw"
                     className={styles.photo}

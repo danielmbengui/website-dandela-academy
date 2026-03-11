@@ -31,7 +31,7 @@ export default function Formations() {
           <h2 className="section-title">
             {f.title[0]}<br /><span>{f.title[1]}</span>
           </h2>
-          <p className="section-subtitle">{f.subtitle}</p>
+          <p className={`section-subtitle ${styles.subtitle}`}>{f.subtitle}</p>
         </div>
 
         <div className={styles.grid}>

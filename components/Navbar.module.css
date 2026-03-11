@@ -11,6 +11,10 @@
 /* Logo */
 .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logoIcon { animation: float 4s ease-in-out infinite; }
+.logoFull { display: block; height: auto; }
+.logoFullWhite {
+  filter: brightness(0) invert(1);
+}
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
 .logoText { font-family: 'Sora', sans-serif; font-size: 1.05rem; color: white; transition: color .3s; }
 .scrolled .logoText { color: var(--dark); }
