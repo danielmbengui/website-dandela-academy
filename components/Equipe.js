@@ -44,7 +44,7 @@ const MEMBERS = [
   {
     categoryIdx: 2,
     name: 'Anacleta NGOLO ROBERTO', initials: 'ANR',
-    roleKey: { fr: 'Assistante de direction', pt: 'Assistente de direção', en: 'Executive Assistant' },
+    roleKey: { fr: 'Assistante administrative', pt: 'Assistente administrativa', en: 'Administrative Assistant' },
     descKey: { fr: "Elle soutient l'administration, s'occupe des inscriptions des élèves, l'accueil et le suivi organisationnel.", pt: "Apoia a administração, a receção e o acompanhamento organizacional.", en: "She supports administration, reception and organisational follow-up." },
     avatar: '/images/team/anacleta-ngolo-roberto.jpeg', color: '#1565D8', bg: '#EAF2FF',
   },
