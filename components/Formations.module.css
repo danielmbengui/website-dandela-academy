@@ -1,0 +1,41 @@
+.section { padding:100px 0; background:var(--white); }
+.header { text-align:center; margin-bottom:56px; }
+.header .section-subtitle { margin:0 auto; }
+
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.grid>.card:nth-child(4) { grid-column:1; }
+.grid>.card:nth-child(5) { grid-column:2; }
+
+.card { padding:28px; position:relative; display:flex; flex-direction:column; }
+.card.featured { background:linear-gradient(135deg,#FFF8EE,#FFFBF5); border-color:rgba(255,159,28,.3) !important; }
+
+.featuredBadge { position:absolute; top:18px; right:18px; display:flex; align-items:center; gap:5px; background:var(--orange-light); color:var(--orange-accent); font-family:'Sora',sans-serif; font-size:.7rem; font-weight:700; padding:4px 10px; border-radius:100px; }
+
+.iconWrap { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; transition:transform .3s ease; }
+.card:hover .iconWrap { transform:scale(1.1) rotate(-5deg); }
+
+.title { font-family:'Sora',sans-serif; font-size:1.1rem; font-weight:700; color:var(--dark); margin-bottom:8px; }
+.desc { font-size:.86rem; color:var(--gray-text); line-height:1.6; margin-bottom:18px; }
+
+.points { list-style:none; display:flex; flex-direction:column; gap:7px; margin-bottom:22px; flex:1; }
+.point { display:flex; align-items:center; gap:9px; font-size:.81rem; color:var(--gray-text); font-weight:500; }
+.dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+
+.cta { display:inline-flex; align-items:center; gap:6px; font-family:'Sora',sans-serif; font-size:.81rem; font-weight:700; padding:8px 14px; border-radius:100px; border:1.5px solid; transition:all .25s; align-self:flex-start; }
+.cta:hover { transform:translateX(4px); }
+
+.bottom { margin-top:52px; padding:28px 36px; background:var(--blue-light); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.bottom p { font-size:.95rem; color:var(--gray-text); }
+.bottom p strong { color:var(--blue-primary); }
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .grid>.card:nth-child(4){grid-column:auto}
+  .grid>.card:nth-child(5){grid-column:1/-1}
+}
+@media(max-width:600px){
+  .section{padding:70px 0}
+  .grid{grid-template-columns:1fr}
+  .grid>.card:nth-child(5){grid-column:1}
+  .bottom{flex-direction:column;text-align:center;padding:20px}
+}

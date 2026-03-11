@@ -1,0 +1,54 @@
+.section { padding: 100px 0; background: var(--gray-light); }
+.header { text-align: center; margin-bottom: 60px; }
+.header .section-subtitle { margin: 0 auto; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.card {
+  background: white; border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border);
+  transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+/* Photo */
+.photoWrap {
+  position: relative; height: 220px; overflow: hidden; flex-shrink: 0;
+}
+.photo { object-fit: cover; transition: transform 0.5s ease; }
+.card:hover .photo { transform: scale(1.06); }
+.overlay { position: absolute; inset: 0; }
+
+.tag {
+  position: absolute; top: 16px; left: 16px;
+  font-family: 'Sora', sans-serif; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+.photoTagline {
+  position: absolute; bottom: 14px; left: 16px; right: 16px;
+  font-family: 'Sora', sans-serif; font-size: 0.75rem; font-weight: 600;
+  color: rgba(255,255,255,0.9); letter-spacing: 0.03em;
+}
+
+/* Body */
+.body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+.iconWrap {
+  width: 50px; height: 50px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s ease;
+}
+.card:hover .iconWrap { transform: rotate(-8deg) scale(1.08); }
+
+.title { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--dark); }
+.desc { font-size: 0.875rem; color: var(--gray-text); line-height: 1.7; }
+
+.features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 8px; }
+.feature { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--gray-text); font-weight: 500; }
+
+@media(max-width:900px) { .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
+@media(max-width:600px) { .section { padding: 70px 0; } }

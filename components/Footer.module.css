@@ -1,0 +1,27 @@
+.footer { background:var(--dark); color:white; padding-top:64px; }
+.top { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:44px; padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.08); }
+
+.brand {}
+.logo { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-family:'Sora',sans-serif; font-size:1rem; color:white; }
+.logo strong { font-weight:800; color:var(--blue-primary); }
+.tagline { font-family:'Sora',sans-serif; font-size:.83rem; font-weight:600; color:rgba(255,255,255,.6); margin-bottom:10px; font-style:italic; }
+.desc { font-size:.8rem; color:rgba(255,255,255,.4); line-height:1.7; margin-bottom:18px; }
+.wa { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; font-family:'Sora',sans-serif; font-size:.78rem; font-weight:600; padding:7px 16px; border-radius:100px; transition:all .25s; }
+.wa:hover { background:#1eb858; transform:translateY(-2px); }
+
+.col {}
+.colTitle { font-family:'Sora',sans-serif; font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em; color:rgba(255,255,255,.38); margin-bottom:18px; }
+.list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.link { font-size:.84rem; color:rgba(255,255,255,.6); transition:all .2s; display:inline-flex; align-items:center; gap:5px; }
+.link:hover { color:white; transform:translateX(4px); }
+
+.contactList { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:18px; }
+.contactItem { display:flex; align-items:center; gap:9px; font-size:.8rem; color:rgba(255,255,255,.6); }
+
+.inefopBadge { display:inline-flex; align-items:center; gap:7px; background:rgba(21,101,216,.15); border:1px solid rgba(21,101,216,.3); color:#90CAF9; font-family:'Sora',sans-serif; font-size:.7rem; font-weight:700; padding:5px 12px; border-radius:100px; }
+
+.bottom { display:flex; align-items:center; justify-content:space-between; padding:18px 0; font-size:.76rem; color:rgba(255,255,255,.28); flex-wrap:wrap; gap:8px; }
+.slogan { font-family:'Sora',sans-serif; font-style:italic; letter-spacing:.05em; }
+
+@media(max-width:900px){ .top{grid-template-columns:1fr 1fr;gap:32px} .brand{grid-column:1/-1} }
+@media(max-width:480px){ .top{grid-template-columns:1fr} .bottom{flex-direction:column;text-align:center} }
