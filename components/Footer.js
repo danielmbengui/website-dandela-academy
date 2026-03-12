@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { useLang } from '../lib/LangContext'
 import styles from './Footer.module.css'
+import InefopLinkText from './InefopLinkText'
 
 export default function Footer() {
   const { t } = useLang()
@@ -28,7 +29,9 @@ export default function Footer() {
               />
             </div>
             <p className={styles.tagline}>{f.tagline}</p>
-            <p className={styles.desc}>{f.desc}</p>
+            <p className={styles.desc}>
+              <InefopLinkText text={f.desc} />
+            </p>
             <a href="https://wa.me/244955872494" target="_blank" rel="noopener noreferrer" className={styles.wa}>
               {WA_SVG} {f.whatsappLabel}
             </a>
@@ -78,7 +81,7 @@ export default function Footer() {
             </ul>
             <div className={styles.inefopBadge}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#90CAF9" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              {f.certifiedBadge}
+              <InefopLinkText text={f.certifiedBadge} />
             </div>
           </div>
         </div>

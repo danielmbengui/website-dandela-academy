@@ -2,6 +2,7 @@
 
 import { useLang } from '../lib/LangContext'
 import styles from './Pourquoi.module.css'
+import InefopLinkText from './InefopLinkText'
 
 const ICONS = [
   <svg key="0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>,
@@ -31,8 +32,12 @@ export default function Pourquoi() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <div className={styles.infoTitle}>{p.infoTitle}</div>
-                <div className={styles.infoText}>{p.infoText}</div>
+                <div className={styles.infoTitle}>
+                  <InefopLinkText text={p.infoTitle} />
+                </div>
+                <div className={styles.infoText}>
+                  <InefopLinkText text={p.infoText} />
+                </div>
               </div>
             </div>
 
@@ -53,7 +58,9 @@ export default function Pourquoi() {
                   <div className={styles.itemIcon}>{ICONS[i]}</div>
                   <div>
                     <h3 className={styles.itemTitle}>{item.title}</h3>
-                    <p className={styles.itemDesc}>{item.desc}</p>
+                    <p className={styles.itemDesc}>
+                      <InefopLinkText text={item.desc} />
+                    </p>
                   </div>
                 </div>
               </div>

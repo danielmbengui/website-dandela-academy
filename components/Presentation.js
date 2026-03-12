@@ -2,6 +2,7 @@
 
 import { useLang } from '../lib/LangContext'
 import styles from './Presentation.module.css'
+import InefopLinkText from './InefopLinkText'
 
 export default function Presentation() {
   const { t } = useLang()
@@ -25,7 +26,9 @@ export default function Presentation() {
         <div className={styles.statsBar}>
           {STAT_NUMS.map((n, i) => (
             <div key={i} className={styles.stat}>
-              <span className={styles.statN}>{n}</span>
+              <span className={styles.statN}>
+                <InefopLinkText text={n} />
+              </span>
               <span className={styles.statL}>{p.stats[i]}</span>
             </div>
           ))}
@@ -81,7 +84,7 @@ export default function Presentation() {
               <div className={`${styles.ftag} ${styles.t2}`}>{p.cyberTag}</div>
               <div className={`${styles.ftag} ${styles.t3}`}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="#FF9F1C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                INEFOP
+                <InefopLinkText text="INEFOP" />
               </div>
             </div>
           </div>

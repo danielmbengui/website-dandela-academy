@@ -2,10 +2,12 @@
 
 import { useLang } from '../lib/LangContext'
 import styles from './Hero.module.css'
+import InefopLinkText from './InefopLinkText'
 
 export default function Hero() {
   const { t } = useLang()
   const h = t.hero
+  const INEFOP_URL = 'https://www.inefop.gov.ao/'
 
   return (
     <section className={styles.hero} id="accueil">
@@ -21,7 +23,7 @@ export default function Hero() {
         <div className={styles.left}>
           <div className={`${styles.badge} animate-in`}>
             <span className={styles.dot} />
-            {h.badge}
+            <InefopLinkText text={h.badge} />
           </div>
 
           <h1 className={`${styles.title} animate-in d1`}>
@@ -50,7 +52,9 @@ export default function Hero() {
               { n: h.stat3n, l: h.stat3l },
             ].map((s,i) => (
               <div key={i} className={styles.stat}>
-                <span className={styles.statN}>{s.n}</span>
+                <span className={styles.statN}>
+                  <InefopLinkText text={s.n} />
+                </span>
                 <span className={styles.statL}>{s.l}</span>
               </div>
             ))}
@@ -96,7 +100,18 @@ export default function Hero() {
                 <rect x="440" y="40" width="8" height="8" rx="2" fill="#FF9F1C"/>
               </g>
               {/* INEFOP badge */}
-              <g style={{animation:'floatC 3.5s ease-in-out infinite 1.2s'}}>
+              <g
+                style={{animation:'floatC 3.5s ease-in-out infinite 1.2s', cursor: 'pointer'}}
+                role="link"
+                tabIndex={0}
+                onClick={() => window.open(INEFOP_URL, '_blank', 'noopener,noreferrer')}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    window.open(INEFOP_URL, '_blank', 'noopener,noreferrer')
+                  }
+                }}
+              >
                 <rect x="350" y="180" width="100" height="48" rx="12" fill="#FF9F1C" opacity=".95"/>
                 <text x="400" y="200" textAnchor="middle" fontSize="11" fontWeight="800" fill="white" fontFamily="Sora,sans-serif">INEFOP</text>
                 <text x="400" y="217" textAnchor="middle" fontSize="9" fill="white" opacity=".85" fontFamily="sans-serif">{`${h.stat3l} ✓`}</text>
