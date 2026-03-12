@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useLang } from '../lib/LangContext'
 import styles from './Equipe.module.css'
-
+console.log(process.env.NEXT_PUBLIC_CLOUDFLARE_BUCKET_URL)
 // Fixed team members with pravatar IDs & initials as fallback
 const MEMBERS = [
   {
@@ -11,7 +11,9 @@ const MEMBERS = [
     name: 'Daniel MBENGUI', initials: 'DM',
     roleKey: { fr: 'Parrain de Dandela Academy', pt: 'Padrinho da Dandela Academy', en: 'Patron of Dandela Academy' },
     descKey: { fr: "Figure de soutien et de vision, il accompagne la dynamique et les valeurs fondatrices de l'école.", pt: "Figura de apoio e visão, acompanha a dinâmica e os valores fundadores da escola.", en: "A figure of support and vision, he accompanies the school's founding values and dynamics." },
-    avatar: '/images/team/daniel-mbengui.jpeg', color: '#FF9F1C', bg: '#FFF4E0',
+    //avatar: '/images/team/daniel-mbengui.jpeg', color: '#FF9F1C', bg: '#FFF4E0',
+    avatar: `${process.env.NEXT_PUBLIC_CLOUDFLARE_BUCKET_URL}/team/daniel-mbengui.jpeg`, color: '#FF9F1C', bg: '#FFF4E0',
+    
   },
   {
     categoryIdx: 1,
